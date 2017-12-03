@@ -1,6 +1,6 @@
 // Rollup plugins
 import babel from 'rollup-plugin-babel';
-import eslint from 'rollup-plugin-eslint';
+// import eslint from 'rollup-plugin-eslint';
 import replace from 'rollup-plugin-replace';
 import uglify from 'rollup-plugin-uglify-es';
 import sass from 'node-sass';
@@ -40,11 +40,11 @@ export default [
 					cssnano()
 				]
 			}),
-			eslint({
+			/* eslint({
 				exclude: [
 					'src/scss/**'
 				]
-			}),
+			}), */
 			babel({
 				exclude: 'node_modules/**'
 			}),
@@ -77,11 +77,11 @@ export default [
 					cssnano()
 				]
 			}),
-			eslint({
+			/* eslint({
 				exclude: [
 					'src/scss/**',
 				]
-			}),
+			}), */
 			replace({
 				exclude: 'node_modules/**',
 				ENV: JSON.stringify(process.env.NODE_ENV || 'development'),
@@ -114,11 +114,11 @@ export default [
 					cssnano()
 				]
 			}),
-			eslint({
+			/* eslint({
 				exclude: [
 					'src/scss/**',
 				]
-			}),
+			}), */
 			babel({
 				exclude: 'node_modules/**',
 			}),
