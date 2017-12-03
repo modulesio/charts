@@ -40,6 +40,8 @@ export default class BaseChart {
 
 		type = '',
 
+    bind = false,
+
 		parent,
 		data
 	}) {
@@ -62,6 +64,8 @@ export default class BaseChart {
 
 		this.setColors(colors, type);
 		this.set_margins(height);
+
+    this.bind = bind;
 	}
 
 	get_different_chart(type) {
@@ -129,8 +133,10 @@ export default class BaseChart {
 	}
 
 	bind_window_events() {
-		window.addEventListener('resize', () => this.refresh());
-		window.addEventListener('orientationchange', () => this.refresh());
+    if (this.bind) {
+      window.addEventListener('resize', () => this.refresh());
+      window.addEventListener('orientationchange', () => this.refresh());
+    }
 	}
 
 	refresh(init=false) {
